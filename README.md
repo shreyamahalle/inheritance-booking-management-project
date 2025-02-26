@@ -60,3 +60,52 @@ The Core Java inheritance-booking-management-project is a basic Java application
 | **Restaurant**        |registerNo, name, City, Area |
 
 ---
+
+
+## ** Class Diagram **
+```mermaid
+---
+title: booking-management
+---
+classDiagram
+  class Customer {
+        - int id
+        - String name
+        - String city
+        - String mobileNo
+        - int age
+    }
+
+    class DeliveryAgent {
+        - int id
+        - String name
+        - String city
+        - int mobileNo
+        + createDeliveryAgent()
+        + displayDeliveryAgent()
+    }
+
+
+    class Order {
+        - int id
+        - String type
+        - String Note
+        - String paymentMethod
+        + createOrder()
+        + displayOrder()
+    }
+
+    class Restaurant {
+        - int registerNo
+        - String name
+        - String city
+        - String Area
+        + createRestaurant()
+        + displayRestaurant()
+    }
+
+
+   
+```
+
+
