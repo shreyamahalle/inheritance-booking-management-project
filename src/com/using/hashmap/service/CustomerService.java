@@ -1,19 +1,22 @@
 package com.using.hashmap.service;
 import com.using.hashmap.model.Customer;
+import com.using.hashmap.repository.CustomerRepository;
 
 import java.util.*;
 
 public class CustomerService {
-
+    private CustomerRepository customerRepository = new CustomerRepository();
     private static Map<Integer ,Customer> customers = new HashMap<>();
     private Scanner sc = new Scanner(System.in);
 
     void printCustomer(Customer customer){
+
         System.out.println(customer);
     }
 
     public Customer createCustomer () {
         Customer customer = new Customer();
+        customerRepository.createCustomer(customer);
         try {
             System.out.println("Please enter id:");
             int id = Integer.parseInt(sc.nextLine());
