@@ -62,39 +62,79 @@ The Core Java inheritance-booking-management-project is a basic Java application
 ---
 
 
-##  Class Diagram 
-```mermaid 
+#  Class Diagram
+```mermaid
 ---
-title: booking-management
+title: booking management project
 ---
 classDiagram
-  class Customer {
-        - int id
-        - String name
-        - String city
-        - String mobileNo
-        - int age
-    }
 
-    class DeliveryAgent {
-        - int id
-        - String name
-        - String city
-        - int mobileNo
-        + createDeliveryAgent()
-        + displayDeliveryAgent()
-    }
+ note " food order management "
+
+ class Customer
+ Customer : +int ID
+ Customer : +String name
+ Customer : +String city
+ Customer : +int age
+ Customer : +int contactNo
+
+class Customer{
+ +createCustomer()
+ +displayCustomer()
+}
+
+class DeliveryAgent
+DeliveryAgent : +int id
+DeliveryAgent : +String name
+DeliveryAgent : +String city
+DeliveryAgent : +mobileNo
+
+class DeliveryAgent{
++createDeliveryAgent()
++displayDeliveryAgent()
+}
+
+  Customer --|> Order  : Inheritance
+class Order{
+ +createOrder()
+ +displayOrder()
+}
+ Order : +int Id
+ Order : +String name
+ Order : +String lastName
+ Order : +int age
+ Order : +int contactNo
+ Order : +String address
+
+class Order{
+ +createOrder()
+ +displayOrder()
+}
+
+Restaurant: +int registerNo
+Restaurant: +String Name
+Restaurant: +String city
+Restaurant: +String Area
+Restaurant: +int contactNo
+
+class Restaurant{
+ +createRestaurant()
+ +displayRestaurant()
+}
+
+Customer <-- Order : Association
+DeliveryAgent  <-- Order  : Assocciation
 
 
-    class Order {
-        - int id
-        - String type
-        - String Note
-        - String paymentMethod
-        + createOrder()
-        + displayOrder()
-        Order <|--OrderMultipleInheritance
-    }
+Restaurant --> Customer : Association
+Restaurant --> Order : Association
+Restaurant --> DeliveryAgent : Association
+
+Customer --> DeliveryAgent : Association
+
+
+
+
 
     class Restaurant {
         - int registerNo
