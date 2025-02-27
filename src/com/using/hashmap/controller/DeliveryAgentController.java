@@ -1,6 +1,6 @@
 package com.using.hashmap.controller;
-
 import com.using.hashmap.exception.CustomerException;
+import com.using.hashmap.exception.DeliveryAgentException;
 import com.using.hashmap.model.Customer;
 import com.using.hashmap.model.DeliveryAgent;
 import com.using.hashmap.service.DeliveryAgentService;
@@ -18,7 +18,7 @@ public class DeliveryAgentController {
             System.out.println("\n---- DeliveryAgent ----");
             System.out.println("1. Add DeliveryAgent");
             System.out.println("2. View DeliveryAgent Details");
-            System.out.println("0. Back to Main Menu");
+            System.out.println("0. Back to the Main Menu");
             System.out.print("Enter choice: ");
 
             option = Integer.parseInt(sc.nextLine());
@@ -39,7 +39,7 @@ public class DeliveryAgentController {
                     default:
                         System.out.println("Invalid choice! Try again.");
                 }
-            } catch (CustomerException e) {
+            } catch (DeliveryAgentException e) {
                 System.out.println("Error: " + e.getClass());
             }
         } while (option != 0);

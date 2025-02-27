@@ -62,8 +62,8 @@ The Core Java inheritance-booking-management-project is a basic Java application
 ---
 
 
-## ** Class Diagram **
-```mermaid
+##  Class Diagram 
+```mermaid 
 ---
 title: booking-management
 ---
@@ -93,6 +93,7 @@ classDiagram
         - String paymentMethod
         + createOrder()
         + displayOrder()
+        Order <|--OrderMultipleInheritance
     }
 
     class Restaurant {
