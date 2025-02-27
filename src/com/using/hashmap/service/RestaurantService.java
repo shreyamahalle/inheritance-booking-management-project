@@ -1,21 +1,23 @@
 package com.using.hashmap.service;
-
 import com.using.hashmap.model.Restaurant;
-
+import com.using.hashmap.repository.RestaurantRepository;
 import java.util.*;
 
 public class RestaurantService {
+    private static RestaurantRepository restaurantRepository = new RestaurantRepository();
     private static HashMap<Integer,Restaurant> restaurants = new HashMap<>();
     private static Scanner sc = new Scanner(System.in);
 
-    void printCustomer(Restaurant r){
+    void printCustomer(Restaurant restaurant){
 
-        System.out.println(r);
+        System.out.println(restaurant);
     }
     public static void createRestaurant(){
 
-            Restaurant r = new Restaurant();
-
+           Restaurant restaurant = new Restaurant();
+            restaurantRepository.createRestaurant(restaurant);
+            restaurantRepository.displayRestaurant(restaurant);
+            restaurantRepository.displayRestaurantToBeClosed("name");
             try {
 
             System.out.println("Please enter registerNo");
@@ -30,11 +32,11 @@ public class RestaurantService {
             System.out.println("Please enter area");
             String area = sc.nextLine();
 
-            r.setRegisterNo(registerNo);
-            r.setName(name);
-            r.setCity(city);
-            r.setArea(area);
-            restaurants.put(1,r);
+            restaurant.setRegisterNo(registerNo);
+            restaurant.setName(name);
+            restaurant.setCity(city);
+            restaurant.setArea(area);
+            restaurants.put(1,restaurant);
             }catch (Exception e){
                 System.out.println("Invalid input type correct data");
             }

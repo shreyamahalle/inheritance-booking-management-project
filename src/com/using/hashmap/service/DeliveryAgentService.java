@@ -1,10 +1,10 @@
 package com.using.hashmap.service;
-import com.using.hashmap.model.Customer;
 import com.using.hashmap.model.DeliveryAgent;
-
+import com.using.hashmap.repository.DeliveryAgentRepository;
 import java.util.*;
 
 public class DeliveryAgentService {
+    private DeliveryAgentRepository deliveryAgentRepository = new DeliveryAgentRepository();
     private static Map<Integer , DeliveryAgent> deliveryAgents = new HashMap<>();
     private Scanner sc = new Scanner(System.in);
 
@@ -15,6 +15,9 @@ public class DeliveryAgentService {
     public DeliveryAgent createDeliveryAgent(){
 
         DeliveryAgent deliveryAgent = new DeliveryAgent();
+        deliveryAgentRepository.createDeliveryAgent(deliveryAgent);
+        deliveryAgentRepository.displayDeliveryAgent(deliveryAgent);
+        deliveryAgentRepository.displayDeliveryAgentToBeClosed(1);
         try {
 
             System.out.println("Please enter id");
@@ -41,11 +44,14 @@ public class DeliveryAgentService {
     }
 
     public void displayDeliveryAgent(){
+
         try {
+
         Set<Map.Entry<Integer,DeliveryAgent>> entrySet = deliveryAgents.entrySet();
         for(Map.Entry<Integer,DeliveryAgent>customerEntry : entrySet){
             System.out.println("Customer Info: " + deliveryAgents );
           }
+
         }catch (Exception e){
             System.out.println("Invalid input type correct data");
         }

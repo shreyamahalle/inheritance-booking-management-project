@@ -1,7 +1,5 @@
 package com.using.hashmap.repository;
-
 import com.using.hashmap.model.Customer;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,7 +11,7 @@ public class CustomerRepository {
     public  void displayCustomers(Customer customer){
         customers.remove(customer);
     }
-    public void displayCustomers(int id){
+    public void displayCustomerToBeClosed(int id){
         Customer customerToBeClosed = null;
         for (Customer customer : customers){
             if (customer.getId() == id){

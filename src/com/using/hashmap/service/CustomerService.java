@@ -1,7 +1,6 @@
 package com.using.hashmap.service;
 import com.using.hashmap.model.Customer;
 import com.using.hashmap.repository.CustomerRepository;
-
 import java.util.*;
 
 public class CustomerService {
@@ -17,6 +16,8 @@ public class CustomerService {
     public Customer createCustomer () {
         Customer customer = new Customer();
         customerRepository.createCustomer(customer);
+        customerRepository.displayCustomers(customer);
+        customerRepository.displayCustomerToBeClosed(1);
         try {
             System.out.println("Please enter id:");
             int id = Integer.parseInt(sc.nextLine());
